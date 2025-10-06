@@ -159,22 +159,23 @@ export default function App() {
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto" ref={tableRef}>
-        <div className="text-center mb-3 bg-white p-4 mx-4">
-          <img
-            src="/logo.png"
-            alt="Logo"
-            className="w-32 mx-auto mb-4"
-          />
-          <h1 className="text-xl font-bold mb-3">
-            ARREARS, RUNNING BALANCE & COLLECTION DETAILS
-          </h1>
-          <h2 className="text-lg font-bold mb-3">
-            CALICUT REGION
-          </h2>
-          <p className="text-red-600 font-bold text-base">DATE: {today}</p>
-        </div>
-        <table className="border-2 border-black text-center bg-white shadow-lg mx-auto mb-4" style={{borderCollapse: 'collapse', fontSize: '15px', width: 'auto'}}>
+      <div className="overflow-x-auto flex justify-center">
+        <div ref={tableRef} className="inline-block bg-white p-6">
+          <div className="text-center mb-3">
+            <img
+              src="/logo.png"
+              alt="Logo"
+              className="w-32 mx-auto mb-4"
+            />
+            <h1 className="text-xl font-bold mb-3">
+              ARREARS, RUNNING BALANCE & COLLECTION DETAILS
+            </h1>
+            <h2 className="text-lg font-bold mb-3">
+              CALICUT REGION
+            </h2>
+            <p className="text-red-600 font-bold text-base">DATE: {today}</p>
+          </div>
+          <table className="border-2 border-black text-center bg-white shadow-lg mx-auto" style={{borderCollapse: 'collapse', fontSize: '15px', width: 'auto'}}>
           <thead>
             <tr className="font-bold bg-white">
               <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '140px', verticalAlign: 'middle'}}>BRANCH</th>
@@ -286,6 +287,7 @@ export default function App() {
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );
