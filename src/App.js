@@ -77,7 +77,11 @@ export default function App() {
     if (tableRef.current) {
       const canvas = await html2canvas(tableRef.current, {
         backgroundColor: '#ffffff',
-        scale: 2
+        scale: 3,
+        useCORS: true,
+        logging: false,
+        windowWidth: tableRef.current.scrollWidth,
+        windowHeight: tableRef.current.scrollHeight
       });
       
       const link = document.createElement('a');
@@ -91,7 +95,11 @@ export default function App() {
     if (tableRef.current) {
       const canvas = await html2canvas(tableRef.current, {
         backgroundColor: '#ffffff',
-        scale: 2
+        scale: 3,
+        useCORS: true,
+        logging: false,
+        windowWidth: tableRef.current.scrollWidth,
+        windowHeight: tableRef.current.scrollHeight
       });
       
       // Convert canvas to blob
@@ -160,33 +168,34 @@ export default function App() {
 
       {/* Table */}
       <div className="overflow-x-auto flex justify-center">
-        <div ref={tableRef} className="inline-block bg-white p-6">
-          <div className="text-center mb-3">
+        <div ref={tableRef} className="inline-block bg-white p-6" style={{backgroundColor: '#ffffff', padding: '24px'}}>
+          <div className="text-center mb-3" style={{textAlign: 'center', marginBottom: '12px'}}>
             <img
               src="/logo.png"
               alt="Logo"
               className="w-32 mx-auto mb-4"
+              style={{width: '128px', margin: '0 auto 16px', display: 'block'}}
             />
-            <h1 className="text-xl font-bold mb-3">
+            <h1 className="text-xl font-bold mb-3" style={{fontSize: '24px', fontWeight: 'bold', marginBottom: '12px'}}>
               ARREARS, RUNNING BALANCE & COLLECTION DETAILS
             </h1>
-            <h2 className="text-lg font-bold mb-3">
+            <h2 className="text-lg font-bold mb-3" style={{fontSize: '22px', fontWeight: 'bold', marginBottom: '12px'}}>
               CALICUT REGION
             </h2>
-            <p className="text-red-600 font-bold text-base">DATE: {today}</p>
+            <p className="text-red-600 font-bold text-base" style={{color: '#dc2626', fontWeight: 'bold', fontSize: '18px'}}>DATE: {today}</p>
           </div>
-          <table className="border-2 border-black text-center bg-white shadow-lg mx-auto" style={{borderCollapse: 'collapse', fontSize: '15px', width: 'auto'}}>
+          <table className="border-2 border-black text-center bg-white shadow-lg mx-auto" style={{borderCollapse: 'collapse', fontSize: '20px', width: 'auto', textAlign: 'center', backgroundColor: '#ffffff', margin: '0 auto', tableLayout: 'fixed'}}>
           <thead>
-            <tr className="font-bold bg-white">
-              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '140px', verticalAlign: 'middle'}}>BRANCH</th>
-              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '150px', verticalAlign: 'middle'}}>TOTAL RB</th>
-              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '150px', verticalAlign: 'middle'}}>RB COLLN</th>
-              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '80px', verticalAlign: 'middle'}}>%</th>
-              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '150px', verticalAlign: 'middle'}}>TOTAL ARR</th>
-              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '150px', verticalAlign: 'middle'}}>ARR COLLN</th>
-              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '80px', verticalAlign: 'middle'}}>%</th>
-              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '150px', verticalAlign: 'middle'}}>TOTAL COLLN</th>
-              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '110px', verticalAlign: 'middle'}}>BILL</th>
+            <tr className="font-bold bg-white" style={{fontWeight: 'bold', backgroundColor: '#ffffff'}}>
+              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '140px', verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '18px', fontWeight: 'bold', lineHeight: '1.2'}}>BRANCH</th>
+              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '150px', verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '18px', fontWeight: 'bold', lineHeight: '1.2'}}>TOTAL RB</th>
+              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '150px', verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '18px', fontWeight: 'bold', lineHeight: '1.2'}}>RB COLLN</th>
+              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '80px', verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '18px', fontWeight: 'bold', lineHeight: '1.2'}}>%</th>
+              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '150px', verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '18px', fontWeight: 'bold', lineHeight: '1.2'}}>TOTAL ARR</th>
+              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '150px', verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '18px', fontWeight: 'bold', lineHeight: '1.2'}}>ARR COLLN</th>
+              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '80px', verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '18px', fontWeight: 'bold', lineHeight: '1.2'}}>%</th>
+              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '150px', verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '18px', fontWeight: 'bold', lineHeight: '1.2'}}>TOTAL COLLN</th>
+              <th className="p-2 border border-black text-base font-bold" style={{backgroundColor: '#FEE2E2', minWidth: '110px', verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '18px', fontWeight: 'bold', lineHeight: '1.2'}}>BILL</th>
             </tr>
           </thead>
           <tbody>
@@ -200,14 +209,14 @@ export default function App() {
               
               const renderEditableCell = (field) => {
                 const isEditing = editingCell?.rowIndex === index && editingCell?.field === field;
-                const displayValue = row[field] ? Number(row[field]).toLocaleString() : '';
+                const displayValue = row[field] || '';
                 
                 return (
                   <td 
                     key={field}
                     className="border border-black p-2 text-base font-bold cursor-pointer hover:bg-blue-50"
                     onClick={() => handleCellClick(index, field)}
-                    style={{ position: 'relative', verticalAlign: 'middle' }}
+                    style={{ verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '20px', fontWeight: 'bold', lineHeight: '1.2', height: '50px', width: '150px', maxWidth: '150px', overflow: 'hidden' }}
                   >
                     {isEditing ? (
                       <input
@@ -231,14 +240,13 @@ export default function App() {
                         className="text-center text-base font-bold border-0 outline-none bg-transparent"
                         autoFocus
                         style={{ 
-                          caretColor: '#000',
-                          position: 'absolute',
-                          top: '50%',
-                          left: '50%',
-                          transform: 'translate(-50%, -50%)',
+                          fontSize: '20px',
+                          fontWeight: 'bold',
                           width: '100%',
-                          height: '100%',
-                          padding: '8px'
+                          maxWidth: '100%',
+                          padding: 0,
+                          margin: 0,
+                          boxSizing: 'border-box'
                         }}
                       />
                     ) : (
@@ -250,15 +258,15 @@ export default function App() {
               
               return (
                 <tr key={index} className="hover:bg-gray-50">
-                  <td className="border border-black p-2 text-base font-bold text-red-600" style={{ verticalAlign: 'middle' }}>
+                  <td className="border border-black p-2 text-base font-bold text-red-600" style={{ verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '20px', fontWeight: 'bold', color: '#dc2626', lineHeight: '1.2' }}>
                     {row.branch}
                   </td>
                   {renderEditableCell('totalRB')}
                   {renderEditableCell('rbColln')}
-                  <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle' }}>{rbPercent}</td>
+                  <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '20px', fontWeight: 'bold', lineHeight: '1.2' }}>{rbPercent}</td>
                   {renderEditableCell('totalARR')}
                   {renderEditableCell('arrColln')}
-                  <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle' }}>{arrPercent}</td>
+                  <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '20px', fontWeight: 'bold', lineHeight: '1.2' }}>{arrPercent}</td>
                   {renderEditableCell('totalColln')}
                   {renderEditableCell('bill')}
                 </tr>
@@ -266,24 +274,24 @@ export default function App() {
             })}
 
             {/* Totals Row */}
-            <tr className="font-bold" style={{backgroundColor: '#FEF3C7'}}>
-              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle' }}>TOTAL</td>
-              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle' }}>{totals.totalRB.toLocaleString()}</td>
-              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle' }}>{totals.rbColln.toLocaleString()}</td>
-              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle' }}>
+            <tr className="font-bold" style={{backgroundColor: '#FEF3C7', fontWeight: 'bold'}}>
+              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '20px', fontWeight: 'bold', lineHeight: '1.2' }}>TOTAL</td>
+              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '20px', fontWeight: 'bold', lineHeight: '1.2' }}>{totals.totalRB}</td>
+              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '20px', fontWeight: 'bold', lineHeight: '1.2' }}>{totals.rbColln}</td>
+              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '20px', fontWeight: 'bold', lineHeight: '1.2' }}>
                 {totals.totalRB
                   ? ((totals.rbColln / totals.totalRB) * 100).toFixed(6)
                   : ""}
               </td>
-              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle' }}>{totals.totalARR.toLocaleString()}</td>
-              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle' }}>{totals.arrColln.toLocaleString()}</td>
-              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle' }}>
+              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '20px', fontWeight: 'bold', lineHeight: '1.2' }}>{totals.totalARR}</td>
+              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '20px', fontWeight: 'bold', lineHeight: '1.2' }}>{totals.arrColln}</td>
+              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '20px', fontWeight: 'bold', lineHeight: '1.2' }}>
                 {totals.totalARR
                   ? ((totals.arrColln / totals.totalARR) * 100).toFixed(6)
                   : ""}
               </td>
-              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle' }}>{totals.totalColln.toLocaleString()}</td>
-              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle' }}>{totals.bill.toLocaleString()}</td>
+              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '20px', fontWeight: 'bold', lineHeight: '1.2' }}>{totals.totalColln}</td>
+              <td className="border border-black p-2 text-base font-bold" style={{ verticalAlign: 'middle', padding: '12px 8px', border: '1px solid black', fontSize: '20px', fontWeight: 'bold', lineHeight: '1.2' }}>{totals.bill}</td>
             </tr>
           </tbody>
         </table>
