@@ -1,7 +1,7 @@
 // Gemini Vision API service
 export async function callGeminiVision(imageFile) {
   const API_KEY = process.env.REACT_APP_GEMINI_API_KEY || "YOUR_GEMINI_API_KEY";
-  const endpoint = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyAvGvC2UaWlYn_tsCNTdf0_uTai8qhGr2g';
+  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
   // Convert image file to base64
   function getBase64(file) {
