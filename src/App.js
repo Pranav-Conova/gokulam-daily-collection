@@ -5,7 +5,7 @@ import ImageProcessor from "./components/ImageProcessor";
 export default function App() {
   // Pre-populate branches from the image
   const initialBranches = [
-    "FAROOK",
+    "FEROKE",
     "KADALUNDI",
     "RAMANATTUKARA",
     "MANANCHIRA",
@@ -15,9 +15,9 @@ export default function App() {
     "KUNNAMANGALAM",
     "MAVOOR ROAD",
     "NARIKKUNI",
-    "KALLAI",
+    "KALLAYI",
     "ENGAPUZHA",
-    "THIRUVAMBADI"
+    "THIRUVAMBADY"
   ];
 
   const [rows, setRows] = useState(() => 
